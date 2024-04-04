@@ -5,8 +5,8 @@ import { defineConfig, devices } from "@playwright/test";
 const config: PlaywrightTestConfig = {
   testDir: "tests",
   /* Run tests in files in parallel */
-  fullyParallel: true,
-  timeout: 60000,
+  // fullyParallel: true,
+  // timeout: 5000,
   reporter: 'html',
   use: {},
   projects: [
@@ -14,12 +14,12 @@ const config: PlaywrightTestConfig = {
     // name in the format: browserName:browserVersion:platform@lambdatest
     // Browsers allowed: `Chrome`, `MicrosoftEdge`, `pw-chromium`, `pw-firefox` and `pw-webkit`
     // Use additional configuration options provided by Playwright if required: https://playwright.dev/docs/api/class-testconfig
-    // {
-    //   name: "chrome:latest:MacOS Ventura@lambdatest",
-    //   use: {
-    //     viewport: { width: 1920, height: 1080 },
-    //   },
-    // },
+    {
+      name: "chrome:latest:MacOS Ventura@lambdatest",
+      use: {
+        viewport: { width: 1920, height: 1080 },
+      },
+    },
     {
       name: "chrome:latest:Windows 11@lambdatest",
       use: {
@@ -32,12 +32,12 @@ const config: PlaywrightTestConfig = {
     //     ...devices["iPhone 12 Pro Max"],
     //   },
     // },
-    {
-      name: "pw-firefox:latest:Windows 11@lambdatest",
-      use: {
-        viewport: { width: 1280, height: 720 },
-      },
-    },
+    // {
+    //   name: "pw-firefox:latest:Windows 11@lambdatest",
+    //   use: {
+    //     viewport: { width: 1280, height: 720 },
+    //   },
+    // },
     // {
     //   name: "pw-webkit:latest:Windows 10@lambdatest",
     //   use: {

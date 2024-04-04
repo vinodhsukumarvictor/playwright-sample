@@ -4,14 +4,14 @@ import fs from 'fs';
 
 test.describe.configure({ mode: 'parallel' });
 
-// test.beforeEach(async ({ page }) => {
-//   await page.goto('https://www.lambdatest.com/selenium-playground/');
-// });
+test.beforeEach(async ({ page }) => {
+  await page.goto('https://www.lambdatest.com/selenium-playground/');
+});
 
 //Test Scenario 1
 test('Test Scenario 1 : Simple Form Demo', async ({ page },testInfo) => {
-  await page.goto('https://www.lambdatest.com/selenium-playground/');
-  // await page.getByText("Simple Form Demo").isVisible();
+  // await page.goto('https://www.lambdatest.com/selenium-playground/');
+  await page.getByText("Simple Form Demo").isVisible();
   await page.getByText("Simple Form Demo").click();
   let valuetoenterActual = 'Welcome to LambdaTest';
   await page.getByRole('button', { name: 'Get Checked Value' }).isVisible();
@@ -31,8 +31,8 @@ test('Test Scenario 1 : Simple Form Demo', async ({ page },testInfo) => {
 
 //Test Scenario 2
 test('Test Scenario 2 : Drag & Drop Sliders', async ({ page },testInfo) => {
-  await page.goto('https://www.lambdatest.com/selenium-playground/');
-  // await page.getByText("Drag & Drop Sliders").isVisible();
+  // await page.goto('https://www.lambdatest.com/selenium-playground/');
+  await page.getByText("Drag & Drop Sliders").isVisible();
   await page.getByText("Drag & Drop Sliders").click();
   await page.locator('//*[@id="slider3"]/div/input').isVisible();
   await page.locator('//*[@id="rangeSuccess"]').isVisible();
@@ -67,9 +67,9 @@ test('Test Scenario 2 : Drag & Drop Sliders', async ({ page },testInfo) => {
 
 
 //Test Scenario 3
-test('Test Scenario 3 : Input Forms', async ({ page }, testInfo) => {
-  await page.goto('https://www.lambdatest.com/selenium-playground/');
-  // await page.getByText("Input Form Submit").isVisible();
+test.only('Test Scenario 3 : Input Forms', async ({ page }, testInfo) => {
+  // await page.goto('https://www.lambdatest.com/selenium-playground/');
+  await page.getByText("Input Form Submit").isVisible();
   await page.getByText("Input Form Submit").click();
   
   //Submit form with no details entered
